@@ -10,7 +10,7 @@ def generateRandom_Num():
 # Function to determine if answer is too low, too high, or if it is correct
 def guessFunc(guessInput, randomNum):
     if guessInput < randomNum:
-        return 'The number is too low.';
+        return 'The number is too low'
     elif guessInput > randomNum:
         return 'The number is too high.'
     else:
