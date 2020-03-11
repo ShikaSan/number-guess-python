@@ -34,11 +34,11 @@ def mainFunc():
             print(guessResult + '\n')
             
         if guessResult == 'Correct!':
-            loopMain()
+            return loopMain()
             
 # If the answer is correct, call main function again, so that program won't close.
 def loopMain():
-    mainFunc()
+    return mainFunc()
 
 # Initialize/call main function       
 mainFunc()
