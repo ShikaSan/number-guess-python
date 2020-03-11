@@ -42,7 +42,3 @@ def loopMain():
 
 # Initialize/call main function       
 mainFunc()
-
-
-
-    
