@@ -46,13 +46,18 @@ def mainFunc():
             guessResult = guessFunc(int(userGuess), secretNum)
             tries = tries + 1
             print(guessResult + '\n')
-            
-            if guessResult == 'Correct!':
-                print('It took you: ' + str(tries) + ' tries to get the correct answer.')
-                print('Press any key to continue...')
 
+            if tries == 6 and guessResult != 'Correct!':
+                print('Nope, the secret number is: ' + str(secretNum))
+                print('Press any key to continue')
                 _ = input()
                 return mainFunc()
 
+            if tries <=6 and guessResult == 'Correct!':
+                print('It took you ' + str(tries) + ' tries to get it.')
+                print('Press any key to continue')
+                _ = input()
+                return mainFunc()
+                
 # Initialize/call main function       
 mainFunc()
