@@ -19,8 +19,7 @@ def checkValid_Input(userInput):
 
     return False
 
-# The "main" function of the whole game
-def mainFunc():
+def gameLoop():
     userGuess = ''
     guessResult = ''
     secretNum = random.randint(0, 20) #Generate random number
@@ -51,19 +50,42 @@ def mainFunc():
                 print('Nope, the secret number is: ' + str(secretNum))
                 print('Press any key to continue')
                 _ = input()
+
+                #Reset variables
                 userGuess = ''
                 guessResult = ''
-                secretNum = random.randint(0, 20) #Generate random number
+                secretNum = random.randint(0, 20)
                 tries = 0
 
             if tries <=6 and guessResult == 'Correct!':
-                print('It took you ' + str(tries) + ' tries to get it.')
+                if tries == 1:
+                    print('WOW! It took you ' + str(tries) + ' try to get it. That\'s very impressive.')
+                else:
+                    print('It took you ' + str(tries) + ' tries to get it.')
+                
                 print('Press any key to continue')
                 _ = input()
+
+                #Reset variables
                 userGuess = ''
                 guessResult = ''
-                secretNum = random.randint(0, 20) #Generate random number
+                secretNum = random.randint(0, 20)
                 tries = 0
-                
+
+# The "main" function of the whole game
+def mainFunc():
+    print('Welcome to this random number guessing game.')
+    print('Type \'start\' to begin the game or \'exit\' to exit.')
+    userInput = input()
+
+    if str.lower(userInput) == 'start':
+        print('\n')
+        gameLoop()
+    
+    if str.lower(userInput) == 'exit':
+        return
+    
+    return
+                  
 # Initialize/call main function       
 mainFunc()
