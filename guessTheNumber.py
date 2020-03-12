@@ -12,7 +12,7 @@ def guessFunc(guessInput, randomNum):
     else:
         return 'Correct!'
 
-# Function that checks if user input is valid.
+# Function that checks if user input is valid during the game loop.
 def checkValid_Input(userInput):
     if userInput.isdigit():
         return True
