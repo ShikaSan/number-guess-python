@@ -19,21 +19,21 @@ def checkValid_Input(userInput):
 
     return False
 
+# Game loop function, the program ends if user types 'Exit'/'exit'.
 def gameLoop():
     userGuess = ''
     guessResult = ''
     secretNum = random.randint(0, 20) #Generate random number
     tries = 0
 
-    # Game loop, the program ends if user types 'Exit'/'exit'.
     while True:
-        print('I\'m thinking of a number between 0 and 20...')
+        print('\nI\'m thinking of a number between 0 and 20...')
         userGuess = input()
 
         # Check first if user typed 'exit'. If true, terminates the program
         # if False, continues code execution.
         if str.lower(userGuess) == 'exit':
-            return
+            exit(0)
         
         # If the previous condition is false, perform this method.
         # This checks if user input is valid.
@@ -72,17 +72,33 @@ def gameLoop():
                 secretNum = random.randint(0, 20)
                 tries = 0
 
+# Checks if input is invalid when first starting up the program
+def invalid_input(userInput_Check):
+    if str.lower(userInput_Check) == 'start':
+        return False
+    else:
+        return True
+
 # The "main" function of the whole game
 def mainFunc():
     print('Welcome to this random number guessing game.')
     print('Type \'start\' to begin the game or \'exit\' to exit.')
-    userInput = input()
-
-    if str.lower(userInput) == 'start':
-        print('\n')
-        gameLoop()
+    userInput = ''
+    
+    while True:
+        userInput = input()
         
-    return
-                  
+        if userInput == 'exit':
+            return
+
+        userInput_Invalid = invalid_input(userInput)
+
+        if userInput_Invalid == False:
+            gameLoop()
+
+        if userInput_Invalid == True:
+            print('\nInvalid input, please try again.')
+            userInput_Invalid = invalid_input(userInput)
+        
 # Initialize/call main function       
 mainFunc()
