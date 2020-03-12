@@ -1,11 +1,7 @@
 # Simple guess the random number game
 
-import random # Import this module for generating a random number
-
-# Function to generate a random number
-def generateRandom_Num():
-    randomNum = random.randint(1, 20)
-    return randomNum
+# Import this module for generating a random number
+import random 
 
 # Function to determine if answer is too low, too high, or if it is correct
 def guessFunc(guessInput, randomNum):
@@ -27,7 +23,7 @@ def checkValid_Input(userInput):
 def mainFunc():
     userGuess = ''
     guessResult = ''
-    getRandom_Num = generateRandom_Num()
+    secretNum = random.randint(-1, 20) #Generate random number
     tries = 0
 
     # Game loop, the program ends if user types 'Exit'/'exit'.
@@ -44,10 +40,10 @@ def mainFunc():
         # This checks if user input is valid.
         isValid = checkValid_Input(userGuess)
         
-        if isValid==False:
+        if isValid == False:
             print('Invalid input, please try again.\n')
         else:
-            guessResult = guessFunc(int(userGuess), getRandom_Num)
+            guessResult = guessFunc(int(userGuess), secretNum)
             tries = tries + 1
             print(guessResult + '\n')
             
