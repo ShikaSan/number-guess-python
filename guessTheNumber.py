@@ -81,10 +81,7 @@ def mainFunc():
     if str.lower(userInput) == 'start':
         print('\n')
         gameLoop()
-    
-    if str.lower(userInput) == 'exit':
-        return
-    
+        
     return
                   
 # Initialize/call main function       
