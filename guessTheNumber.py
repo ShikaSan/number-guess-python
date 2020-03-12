@@ -23,7 +23,7 @@ def checkValid_Input(userInput):
 def mainFunc():
     userGuess = ''
     guessResult = ''
-    secretNum = random.randint(-1, 20) #Generate random number
+    secretNum = random.randint(0, 20) #Generate random number
     tries = 0
 
     # Game loop, the program ends if user types 'Exit'/'exit'.
@@ -51,13 +51,19 @@ def mainFunc():
                 print('Nope, the secret number is: ' + str(secretNum))
                 print('Press any key to continue')
                 _ = input()
-                return mainFunc()
+                userGuess = ''
+                guessResult = ''
+                secretNum = random.randint(0, 20) #Generate random number
+                tries = 0
 
             if tries <=6 and guessResult == 'Correct!':
                 print('It took you ' + str(tries) + ' tries to get it.')
                 print('Press any key to continue')
                 _ = input()
-                return mainFunc()
+                userGuess = ''
+                guessResult = ''
+                secretNum = random.randint(0, 20) #Generate random number
+                tries = 0
                 
 # Initialize/call main function       
 mainFunc()
