@@ -21,13 +21,14 @@ def checkValid_Input(userInput):
     if userInput.isdigit():
         return True
 
-    return False;
+    return False
 
 # The "main" function of the whole game
 def mainFunc():
     userGuess = ''
     guessResult = ''
     getRandom_Num = generateRandom_Num()
+    tries = 0
 
     # Game loop, the program ends if user types 'Exit'/'exit'.
     while True:
@@ -37,7 +38,7 @@ def mainFunc():
         # Check first if user typed 'exit'. If true, terminates the program
         # if False, continues code execution.
         if str.lower(userGuess) == 'exit':
-            return;
+            return
         
         # If the previous condition is false, perform this method.
         # This checks if user input is valid.
@@ -47,10 +48,15 @@ def mainFunc():
             print('Invalid input, please try again.\n')
         else:
             guessResult = guessFunc(int(userGuess), getRandom_Num)
+            tries = tries + 1
             print(guessResult + '\n')
             
             if guessResult == 'Correct!':
-                    return mainFunc()
+                print('It took you: ' + str(tries) + ' tries to get the correct answer.')
+                print('Press any key to continue...')
+
+                k = input()
+                return mainFunc()
 
 # Initialize/call main function       
 mainFunc()
