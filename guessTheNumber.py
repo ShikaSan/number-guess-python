@@ -25,6 +25,7 @@ def gameLoop():
     guessResult = ''
     secretNum = random.randint(0, 20) #Generate random number
     tries = 0
+    reset_session = False
 
     while True:
         print('\nI\'m thinking of a number between 0 and 20...')
@@ -50,12 +51,7 @@ def gameLoop():
                 print('Nope, the secret number is: ' + str(secretNum))
                 print('Press any key to continue')
                 _ = input()
-
-                #Reset variables
-                userGuess = ''
-                guessResult = ''
-                secretNum = random.randint(0, 20)
-                tries = 0
+                reset_session = True
 
             if tries <=6 and guessResult == 'Correct!':
                 if tries == 1:
@@ -65,12 +61,15 @@ def gameLoop():
                 
                 print('Press any key to continue')
                 _ = input()
+                reset_session = True
 
-                #Reset variables
+            #Reset variables
+            if reset_session == True:
                 userGuess = ''
                 guessResult = ''
                 secretNum = random.randint(0, 20)
                 tries = 0
+                reset_session = False
 
 # Checks if input is invalid when first starting up the program
 def invalid_input(userInput_Check):
