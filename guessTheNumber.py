@@ -55,7 +55,7 @@ def gameLoop():
 
             if tries <=6 and guessResult == 'Correct!':
                 if tries == 1:
-                    print('WOW! It took you ' + str(tries) + ' try to get it. That\'s very impressive.')
+                    print('It only took you a single try to get it. That\'s very impressive.')
                 else:
                     print('It took you ' + str(tries) + ' tries to get it.')
                 
