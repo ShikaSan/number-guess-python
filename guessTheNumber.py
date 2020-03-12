@@ -55,7 +55,7 @@ def mainFunc():
                 print('It took you: ' + str(tries) + ' tries to get the correct answer.')
                 print('Press any key to continue...')
 
-                k = input()
+                _ = input()
                 return mainFunc()
 
 # Initialize/call main function       
